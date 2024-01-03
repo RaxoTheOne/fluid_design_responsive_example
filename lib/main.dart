@@ -38,8 +38,8 @@ class MyHomePage extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return Container(
             color: _getRandomColor(),
-            height: 100,
-            width: 150,
+            height: 50,
+            width: 100,
             child: Center(
               child: Text('Farbe $index'),
             ),
