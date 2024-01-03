@@ -23,16 +23,19 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double maxCrossAxisExtent = _calculateMaxCrossAxisExtent(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Responsive GridView'),
       ),
       body: ResponsiveGridView.builder(
         alignment: Alignment.center,
-        gridDelegate: const ResponsiveGridDelegate(
+        gridDelegate: ResponsiveGridDelegate(
           crossAxisExtent: 80,
           crossAxisSpacing: 8,
           mainAxisSpacing: 8,
+          maxCrossAxisExtent: maxCrossAxisExtent,
         ),
         itemCount: 48,
         itemBuilder: (BuildContext context, int index) {
@@ -58,5 +61,25 @@ class MyHomePage extends StatelessWidget {
       random.nextInt(256),
       random.nextInt(256),
     );
+  }
+
+  // Funktion zum Berechnen der maximalen Breite jedes Elements basierend auf der Bildschirmbreite
+  double _calculateMaxCrossAxisExtent(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double maxCrossAxisExtent;
+
+    if (screenWidth > 1200) {
+      maxCrossAxisExtent = screenWidth / 6;
+    } else if (screenWidth > 900) {
+      maxCrossAxisExtent = screenWidth / 5;
+    } else if (screenWidth > 600) {
+      maxCrossAxisExtent = screenWidth / 4;
+    } else if (screenWidth > 400) {
+      maxCrossAxisExtent = screenWidth / 3;
+    } else {
+      maxCrossAxisExtent = screenWidth / 2;
+    }
+
+    return maxCrossAxisExtent;
   }
 }
