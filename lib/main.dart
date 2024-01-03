@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -26,20 +28,20 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Responsive GridView'),
       ),
       body: ResponsiveGridView.builder(
+        alignment: Alignment.center,
         gridDelegate: const ResponsiveGridDelegate(
-          crossAxisExtent: 150, // Breite eines Elements
+          crossAxisExtent: 100, // Breite eines Elements
           crossAxisSpacing: 8,   // Abstand zwischen den Elementen
           mainAxisSpacing: 8,     // Vertikaler Abstand zwischen den Reihen
         ),
-        alignment: Alignment.center,
-        itemCount: 6,  // Anzahl der Container
+        itemCount: 21,  // Anzahl der Container
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            color: _getColor(index), // Funktion zum Abrufen der Farbe
+            color: _getRandomColor(), // Funktion zum Abrufen einer zufälligen Farbe
             height: 100,
             width: 150,
             child: Center(
-              child: Text('Element $index'),
+              child: Text('Farbe $index'),
             ),
           );
         },
@@ -47,8 +49,14 @@ class MyHomePage extends StatelessWidget {
     );
   }
 
-  // Funktion zum Abrufen der Farbe basierend auf dem Index
-  Color _getColor(int index) {
-    return index % 2 == 0 ? Colors.blue : Colors.green;
+  // Funktion zum Abrufen einer zufälligen Farbe
+  Color _getRandomColor() {
+    Random random = Random();
+    return Color.fromARGB(
+      255,
+      random.nextInt(256),
+      random.nextInt(256),
+      random.nextInt(256),
+    );
   }
 }
