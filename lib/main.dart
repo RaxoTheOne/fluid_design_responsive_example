@@ -39,8 +39,8 @@ class MyHomePage extends StatelessWidget {
           return Container(
             color:
                 _getRandomColor(), // Funktion zum Abrufen einer zufälligen Farbe
-            height: 100,
-            width: 150,
+            height: 50,
+            width: 100,
             child: Center(
               child: Text('Farbe $index'),
             ),
