@@ -30,17 +30,16 @@ class MyHomePage extends StatelessWidget {
       body: ResponsiveGridView.builder(
         alignment: Alignment.center,
         gridDelegate: const ResponsiveGridDelegate(
-          crossAxisExtent: 100, // Breite eines Elements
-          crossAxisSpacing: 8, // Abstand zwischen den Elementen
-          mainAxisSpacing: 8, // Vertikaler Abstand zwischen den Reihen
+          crossAxisExtent: 80,
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 8,
         ),
-        itemCount: 21, // Anzahl der Container
+        itemCount: 48,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            color:
-                _getRandomColor(), // Funktion zum Abrufen einer zufälligen Farbe
-            height: 50,
-            width: 100,
+            color: _getRandomColor(),
+            height: 100,
+            width: 150,
             child: Center(
               child: Text('Farbe $index'),
             ),
