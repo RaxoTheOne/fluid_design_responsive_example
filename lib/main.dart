@@ -31,6 +31,7 @@ class MyHomePage extends StatelessWidget {
           crossAxisSpacing: 8,   // Abstand zwischen den Elementen
           mainAxisSpacing: 8,     // Vertikaler Abstand zwischen den Reihen
         ),
+        alignment: Alignment.center,
         itemCount: 6,  // Anzahl der Container
         itemBuilder: (BuildContext context, int index) {
           return Container(
