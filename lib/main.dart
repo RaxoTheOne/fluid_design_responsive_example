@@ -31,13 +31,14 @@ class MyHomePage extends StatelessWidget {
         alignment: Alignment.center,
         gridDelegate: const ResponsiveGridDelegate(
           crossAxisExtent: 100, // Breite eines Elements
-          crossAxisSpacing: 8,   // Abstand zwischen den Elementen
-          mainAxisSpacing: 8,     // Vertikaler Abstand zwischen den Reihen
+          crossAxisSpacing: 8, // Abstand zwischen den Elementen
+          mainAxisSpacing: 8, // Vertikaler Abstand zwischen den Reihen
         ),
-        itemCount: 21,  // Anzahl der Container
+        itemCount: 21, // Anzahl der Container
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            color: _getRandomColor(), // Funktion zum Abrufen einer zufälligen Farbe
+            color:
+                _getRandomColor(), // Funktion zum Abrufen einer zufälligen Farbe
             height: 100,
             width: 150,
             child: Center(
